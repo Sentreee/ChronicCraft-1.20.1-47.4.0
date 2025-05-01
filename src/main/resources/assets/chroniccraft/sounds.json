@@ -1,0 +1,11 @@
+{
+  "sparking_up": {
+    "category": "players",
+    "sounds": [
+      {
+        "name": "chroniccraft:sparking_up",
+        "stream": false
+      }
+    ]
+  }
+}

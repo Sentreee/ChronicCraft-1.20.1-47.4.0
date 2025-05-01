@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "chroniccraft:item/bagged_og_chronic"
+  }
+}
