@@ -8,6 +8,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 import net.sentree.chroniccraft.ChronicCraft;
+import net.sentree.chroniccraft.block.ModBlocks;
 
 public class ModCreativeModTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
@@ -32,6 +33,8 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModItems.ROLLED_OG_CHRONIC.get());
                         pOutput.accept(ModItems.ROLLED_PURPLE_CHRONIC.get());
                         pOutput.accept(ModItems.ROLLED_CHILLI_P_CHRONIC.get());
+
+                        pOutput.accept(ModBlocks.PACKING_STATION.get());
 
                         pOutput.accept(ModItems.BAGGIE.get());
 

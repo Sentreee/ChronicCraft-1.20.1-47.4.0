@@ -18,7 +18,7 @@
           "name": "chroniccraft:og_chronic"
         }
       ],
-      "rolls": 1.0
+      "rolls": 3.0
     },
     {
       "bonus_rolls": 0.0,
@@ -34,7 +34,7 @@
               }
             },
             {
-              "chance": 0.1,
+              "chance": 1.0,
               "condition": "minecraft:random_chance"
             }
           ],

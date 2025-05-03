@@ -7,6 +7,7 @@ import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
+import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 import net.sentree.chroniccraft.ChronicCraft;
@@ -27,6 +28,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         makeOGChronicCrop((CropBlock) ModBlocks.OG_CHRONIC_CROP.get(), "og_chronic_stage", "og_chronic_stage");
         makePurpleChronicCrop((CropBlock) ModBlocks.PURPLE_CHRONIC_CROP.get(), "purple_chronic_stage", "purple_chronic_stage");
         makeChilliPChronicCrop((CropBlock) ModBlocks.CHILLI_P_CHRONIC_CROP.get(), "chilli_p_chronic_stage", "chilli_p_chronic_stage");
+
+        simpleBlockWithItem(ModBlocks.PACKING_STATION.get(),
+                new ModelFile.UncheckedModelFile(modLoc("block/packing_station")));
     }
 
     public void makeOGChronicCrop(CropBlock block, String modelName, String textureName) {

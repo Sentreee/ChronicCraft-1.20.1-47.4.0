@@ -13,6 +13,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.sentree.chroniccraft.ChronicCraft;
 import net.sentree.chroniccraft.block.custom.ChilliPChronicCropBlock;
 import net.sentree.chroniccraft.block.custom.OGChronicCropBlock;
+import net.sentree.chroniccraft.block.custom.PackingStationBlock;
 import net.sentree.chroniccraft.block.custom.PurpleChronicCropBlock;
 import net.sentree.chroniccraft.item.ModItems;
 
@@ -28,6 +29,9 @@ public class ModBlocks {
             () -> new PurpleChronicCropBlock(BlockBehaviour.Properties.copy(Blocks.BEETROOTS).sound(SoundType.SWEET_BERRY_BUSH).noCollission().noOcclusion()));
     public static final RegistryObject<Block> CHILLI_P_CHRONIC_CROP = BLOCKS.register("chilli_p_chronic_crop",
             () -> new ChilliPChronicCropBlock(BlockBehaviour.Properties.copy(Blocks.BEETROOTS).sound(SoundType.SWEET_BERRY_BUSH).noCollission().noOcclusion()));
+
+    public static final RegistryObject<Block> PACKING_STATION = registerBlock("packing_station",
+            () -> new PackingStationBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

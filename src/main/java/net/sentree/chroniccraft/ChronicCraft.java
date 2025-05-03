@@ -1,6 +1,7 @@
 package net.sentree.chroniccraft;
 
 import com.mojang.logging.LogUtils;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -13,8 +14,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.sentree.chroniccraft.block.ModBlocks;
+import net.sentree.chroniccraft.block.entity.ModBlockEntities;
 import net.sentree.chroniccraft.item.ModCreativeModTabs;
 import net.sentree.chroniccraft.item.ModItems;
+import net.sentree.chroniccraft.recipe.ModRecipes;
+import net.sentree.chroniccraft.screen.ModMenuTypes;
+import net.sentree.chroniccraft.screen.PackingStationScreen;
 import net.sentree.chroniccraft.sounds.ModSounds;
 import org.slf4j.Logger;
 
@@ -33,6 +38,9 @@ public class ChronicCraft {
         ModBlocks.register(modEventBus);
 
         ModSounds.register(modEventBus);
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
+        ModRecipes.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
@@ -61,6 +69,7 @@ public class ChronicCraft {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
 
+            MenuScreens.register(ModMenuTypes.PACKING_STATION_MENU.get(), PackingStationScreen::new);
         }
     }
 }

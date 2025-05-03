@@ -7,6 +7,7 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.sentree.chroniccraft.ChronicCraft;
+import net.sentree.chroniccraft.block.ModBlocks;
 import net.sentree.chroniccraft.util.ModTags;
 import org.jetbrains.annotations.Nullable;
 
@@ -36,8 +37,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         //this.tag(BlockTags.NEEDS_DIAMOND_TOOL)
         //        .add(ModBlocks.RAW_SAPPHIRE_BLOCK.get());
 //
-        //this.tag(BlockTags.NEEDS_STONE_TOOL)
-        //        .add(ModBlocks.NETHER_SAPPHIRE_ORE.get());
+        this.tag(BlockTags.NEEDS_STONE_TOOL)
+                .add(ModBlocks.PACKING_STATION.get());
 //
         //this.tag(Tags.Blocks.NEEDS_NETHERITE_TOOL)
         //        .add(ModBlocks.END_STONE_SAPPHIRE_ORE.get());

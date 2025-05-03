@@ -29,6 +29,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     @Override
     protected void generate() {
 
+        this.dropSelf(ModBlocks.PACKING_STATION.get());
+
         LootItemCondition.Builder ogchronic$builder = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(ModBlocks.OG_CHRONIC_CROP.get())
                 .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(OGChronicCropBlock.AGE, 7));
