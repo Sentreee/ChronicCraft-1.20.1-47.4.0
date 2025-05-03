@@ -1,3 +1,6 @@
+# VERY MUCH WORK IN PROGRESS
+
+
 # 🌿 Chronic Craft
 
 **Chronic Craft** is a Minecraft mod that introduces unique gameplay mechanics inspired by the video game *Schedule 1*. Step into a world where "chronic" isn't just slang—it's a fully-fledged system of new items, effects, and lore-rich content.  
