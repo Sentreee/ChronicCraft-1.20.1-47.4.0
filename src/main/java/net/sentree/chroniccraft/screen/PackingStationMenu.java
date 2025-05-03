@@ -19,7 +19,15 @@ public class PackingStationMenu extends AbstractContainerMenu {
     private final ContainerData data;
 
     public PackingStationMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(pContainerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(pContainerId, inv, getBlockEntitySafely(inv, extraData), new SimpleContainerData(2));
+    }
+
+    private static PackingStationBlockEntity getBlockEntitySafely(Inventory inv, FriendlyByteBuf extraData) {
+        BlockEntity entity = inv.player.level().getBlockEntity(extraData.readBlockPos());
+        if (!(entity instanceof PackingStationBlockEntity be)) {
+            throw new IllegalStateException("Expected PackingStationBlockEntity but got: " + entity);
+        }
+        return be;
     }
 
     public PackingStationMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {

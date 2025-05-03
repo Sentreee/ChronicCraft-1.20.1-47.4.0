@@ -120,9 +120,24 @@ public class PackingStationBlockEntity extends BlockEntity implements MenuProvid
     @Override
     public void load(CompoundTag pTag) {
         super.load(pTag);
-        itemHandler.deserializeNBT(pTag.getCompound("inventory"));
-        progress = pTag.getInt("packing_station.progress");
+
+        // Deserialize only if size matches expected 3 slots
+        CompoundTag invTag = pTag.getCompound("inventory");
+        ItemStackHandler loadedHandler = new ItemStackHandler(3);
+        loadedHandler.deserializeNBT(invTag);
+
+        if (loadedHandler.getSlots() == 3) {
+            for (int i = 0; i < 3; i++) {
+                itemHandler.setStackInSlot(i, loadedHandler.getStackInSlot(i));
+            }
+        } else {
+            // Optional: log a warning or fallback
+            System.err.println("Warning: Tried to load inventory with unexpected slot count: " + loadedHandler.getSlots());
+        }
+
+        this.progress = pTag.getInt("packing_station.progress");
     }
+
 
     public void tick(Level pLevel, BlockPos pPos, BlockState pState) {
         if(hasRecipe()) {
