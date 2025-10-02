@@ -37,6 +37,7 @@ public class ModCreativeModTabs {
                         pOutput.accept(ModBlocks.PACKING_STATION.get());
 
                         pOutput.accept(ModItems.BAGGIE.get());
+                        pOutput.accept(ModItems.ROLLING_PAPER.get());
 
                     })
                     .build());

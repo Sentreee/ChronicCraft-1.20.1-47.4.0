@@ -11,26 +11,25 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 import net.sentree.chroniccraft.block.ModBlocks;
 import net.sentree.chroniccraft.block.entity.PackingStationBlockEntity;
-import org.checkerframework.checker.nullness.qual.Nullable;
 
-public class PackingStationMenu extends AbstractContainerMenu {
+public class RollingStationMenu extends AbstractContainerMenu {
     public final PackingStationBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
 
-    public PackingStationMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
+    public RollingStationMenu(int pContainerId, Inventory inv, FriendlyByteBuf extraData) {
         this(pContainerId, inv, getBlockEntitySafely(inv, extraData), new SimpleContainerData(2));
     }
 
     private static PackingStationBlockEntity getBlockEntitySafely(Inventory inv, FriendlyByteBuf extraData) {
         BlockEntity entity = inv.player.level().getBlockEntity(extraData.readBlockPos());
         if (!(entity instanceof PackingStationBlockEntity be)) {
-            throw new IllegalStateException("Expected PackingStationBlockEntity but got: " + entity);
+            throw new IllegalStateException("Expected RollingStationBlockEntity but got: " + entity);
         }
         return be;
     }
 
-    public PackingStationMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
+    public RollingStationMenu(int pContainerId, Inventory inv, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.PACKING_STATION_MENU.get(), pContainerId);
         checkContainerSize(inv, 3);
         blockEntity = ((PackingStationBlockEntity) entity);

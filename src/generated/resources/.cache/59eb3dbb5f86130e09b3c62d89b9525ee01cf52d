@@ -1,5 +1,6 @@
-// 1.20.1	2025-05-01T00:33:55.3402336	Loot Tables
+// 1.20.1	2025-05-03T18:12:06.2963357	Loot Tables
 ca8891e454f5e50cf341c93fa84067314a08c355 data/chroniccraft/loot_tables/blocks/chilli_p_chronic_crop.json
 61255899453262fdb3e0716d8a603a9696dd4472 data/chroniccraft/loot_tables/blocks/og_chronic_crop.json
 5d6cecc1c6c59b005041bcbb31b68fb39c67a554 data/chroniccraft/loot_tables/blocks/packing_station.json
 d6f08a31e230e662fea410122f2dce2b53b8e724 data/chroniccraft/loot_tables/blocks/purple_chronic_crop.json
+4d33072244c0e7ba0fcce36a2166479b61d62fdc data/chroniccraft/loot_tables/blocks/rolling_station.json

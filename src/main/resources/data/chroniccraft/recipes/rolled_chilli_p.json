@@ -1,0 +1,15 @@
+{
+  "type": "chroniccraft:rolling",
+  "ingredients": [
+    {
+      "item": "chroniccraft:chilli_p_chronic"
+    },
+    {
+      "item": "chroniccraft:rolling_paper"
+    }
+  ],
+  "result": {
+    "item": "chroniccraft:rolled_chilli_p_chronic",
+    "count": 1
+  }
+}

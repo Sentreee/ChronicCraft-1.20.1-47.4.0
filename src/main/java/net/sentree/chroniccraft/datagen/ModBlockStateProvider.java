@@ -1,10 +1,12 @@
 package net.sentree.chroniccraft.datagen;
 
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -29,8 +31,29 @@ public class ModBlockStateProvider extends BlockStateProvider {
         makePurpleChronicCrop((CropBlock) ModBlocks.PURPLE_CHRONIC_CROP.get(), "purple_chronic_stage", "purple_chronic_stage");
         makeChilliPChronicCrop((CropBlock) ModBlocks.CHILLI_P_CHRONIC_CROP.get(), "chilli_p_chronic_stage", "chilli_p_chronic_stage");
 
-        simpleBlockWithItem(ModBlocks.PACKING_STATION.get(),
-                new ModelFile.UncheckedModelFile(modLoc("block/packing_station")));
+        getVariantBuilder(ModBlocks.PACKING_STATION.get()).forAllStates(state -> {
+            Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            int yRotation = ((int) facing.toYRot() - 90 + 360) % 360;
+
+            itemModels().withExistingParent("chroniccraft:packing_station", modLoc("block/packing_station"));
+
+            return ConfiguredModel.builder()
+                    .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/packing_station")))
+                    .rotationY(yRotation)
+                    .build();
+        });
+
+        getVariantBuilder(ModBlocks.ROLLING_STATION.get()).forAllStates(state -> {
+            Direction facing = state.getValue(BlockStateProperties.HORIZONTAL_FACING);
+            int yRotation = ((int) facing.toYRot() - 90 + 360) % 360;
+
+            itemModels().withExistingParent("chroniccraft:rolling_station", modLoc("block/rolling_station"));
+
+            return ConfiguredModel.builder()
+                    .modelFile(new ModelFile.UncheckedModelFile(modLoc("block/rolling_station")))
+                    .rotationY(yRotation)
+                    .build();
+        });
     }
 
     public void makeOGChronicCrop(CropBlock block, String modelName, String textureName) {

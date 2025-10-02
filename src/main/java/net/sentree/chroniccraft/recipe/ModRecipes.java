@@ -14,6 +14,9 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<PackingRecipe>> PACKING_SERIALIZER =
             SERIALIZERS.register("packing", () -> PackingRecipe.Serializer.INSTANCE);
 
+    public static final RegistryObject<RecipeSerializer<RollingRecipe>> ROLLING_SERIALIZER =
+            SERIALIZERS.register("rolling", () -> RollingRecipe.Serializer.INSTANCE);
+
     public static void register(IEventBus eventBus) {
         SERIALIZERS.register(eventBus);
     }

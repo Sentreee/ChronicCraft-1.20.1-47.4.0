@@ -17,6 +17,11 @@ public class ModBlockEntities {
                     BlockEntityType.Builder.of(PackingStationBlockEntity::new,
                             ModBlocks.PACKING_STATION.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<PackingStationBlockEntity>> ROLLING_BE =
+            BLOCK_ENTITIES.register("rolling_be", () ->
+                    BlockEntityType.Builder.of(PackingStationBlockEntity::new,
+                            ModBlocks.ROLLING_STATION.get()).build(null));
+
 
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);

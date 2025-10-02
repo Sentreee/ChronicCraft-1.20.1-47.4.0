@@ -1,0 +1,15 @@
+{
+  "type": "chroniccraft:packing",
+  "ingredients": [
+    {
+      "item": "chroniccraft:purple_chronic"
+    },
+    {
+      "item": "chroniccraft:baggie"
+    }
+  ],
+  "result": {
+    "item": "chroniccraft:bagged_purple_chronic",
+    "count": 1
+  }
+}

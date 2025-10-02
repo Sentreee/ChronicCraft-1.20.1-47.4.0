@@ -11,10 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.sentree.chroniccraft.ChronicCraft;
-import net.sentree.chroniccraft.block.custom.ChilliPChronicCropBlock;
-import net.sentree.chroniccraft.block.custom.OGChronicCropBlock;
-import net.sentree.chroniccraft.block.custom.PackingStationBlock;
-import net.sentree.chroniccraft.block.custom.PurpleChronicCropBlock;
+import net.sentree.chroniccraft.block.custom.*;
 import net.sentree.chroniccraft.item.ModItems;
 
 import java.util.function.Supplier;
@@ -32,6 +29,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> PACKING_STATION = registerBlock("packing_station",
             () -> new PackingStationBlock(BlockBehaviour.Properties.copy(Blocks.STONE).noOcclusion()));
+
+    public static final RegistryObject<Block> ROLLING_STATION = registerBlock("rolling_station",
+            () -> new RollingStationBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD).noOcclusion()));
 
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

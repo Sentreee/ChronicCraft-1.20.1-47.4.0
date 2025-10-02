@@ -26,6 +26,9 @@ public class ModItems {
     public static final RegistryObject<Item> BAGGIE = ITEMS.register("baggie",
             () -> new Item(new Item.Properties().stacksTo(20)));
 
+    public static final RegistryObject<Item> ROLLING_PAPER = ITEMS.register("rolling_paper",
+            () -> new Item(new Item.Properties().stacksTo(20)));
+
     public static final RegistryObject<Item> BAGGED_OG_CHRONIC = ITEMS.register("bagged_og_chronic",
             () -> new Item(new Item.Properties().stacksTo(20)));
     public static final RegistryObject<Item> BAGGED_PURPLE_CHRONIC = ITEMS.register("bagged_purple_chronic",

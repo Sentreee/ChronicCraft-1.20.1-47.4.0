@@ -14,12 +14,12 @@ import net.minecraft.world.level.Level;
 import net.sentree.chroniccraft.ChronicCraft;
 import org.jetbrains.annotations.Nullable;
 
-public class PackingRecipe implements Recipe<SimpleContainer> {
+public class RollingRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> inputItems;
     private final ItemStack output;
     private final ResourceLocation id;
 
-    public PackingRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
+    public RollingRecipe(NonNullList<Ingredient> inputItems, ItemStack output, ResourceLocation id) {
         this.inputItems = inputItems;
         this.output = output;
         this.id = id;
@@ -70,17 +70,17 @@ public class PackingRecipe implements Recipe<SimpleContainer> {
         return Type.INSTANCE;
     }
 
-    public static class Type implements RecipeType<PackingRecipe> {
+    public static class Type implements RecipeType<RollingRecipe> {
         public static final Type INSTANCE = new Type();
-        public static final String ID = "packing";
+        public static final String ID = "rolling";
     }
 
-    public static class Serializer implements RecipeSerializer<PackingRecipe> {
+    public static class Serializer implements RecipeSerializer<RollingRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID = new ResourceLocation(ChronicCraft.MOD_ID, "packing");
+        public static final ResourceLocation ID = new ResourceLocation(ChronicCraft.MOD_ID, "rolling");
 
         @Override
-        public PackingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
+        public RollingRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
@@ -90,11 +90,11 @@ public class PackingRecipe implements Recipe<SimpleContainer> {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
             }
 
-            return new PackingRecipe(inputs, output, pRecipeId);
+            return new RollingRecipe(inputs, output, pRecipeId);
         }
 
         @Override
-        public @Nullable PackingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+        public @Nullable RollingRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
             NonNullList<Ingredient> inputs = NonNullList.withSize(pBuffer.readInt(), Ingredient.EMPTY);
 
             for(int i = 0; i < inputs.size(); i++) {
@@ -102,11 +102,11 @@ public class PackingRecipe implements Recipe<SimpleContainer> {
             }
 
             ItemStack output = pBuffer.readItem();
-            return new PackingRecipe(inputs, output, pRecipeId);
+            return new RollingRecipe(inputs, output, pRecipeId);
         }
 
         @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, PackingRecipe pRecipe) {
+        public void toNetwork(FriendlyByteBuf pBuffer, RollingRecipe pRecipe) {
             pBuffer.writeInt(pRecipe.inputItems.size());
 
             for (Ingredient ingredient : pRecipe.getIngredients()) {

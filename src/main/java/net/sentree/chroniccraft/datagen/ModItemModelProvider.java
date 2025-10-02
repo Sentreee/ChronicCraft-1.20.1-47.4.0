@@ -34,6 +34,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ROLLED_CHILLI_P_CHRONIC);
 
         simpleItem(ModItems.BAGGIE);
+        simpleItem(ModItems.ROLLING_PAPER);
 
     }
 

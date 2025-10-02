@@ -1,0 +1,15 @@
+{
+  "type": "chroniccraft:rolling",
+  "ingredients": [
+    {
+      "item": "chroniccraft:og_chronic"
+    },
+    {
+      "item": "chroniccraft:rolling_paper"
+    }
+  ],
+  "result": {
+    "item": "chroniccraft:rolled_og_chronic",
+    "count": 1
+  }
+}
